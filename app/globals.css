@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --font-body: var(--font-titillium), 'Titillium Web', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #030712;
+  color: #f9fafb;
+  font-family: var(--font-titillium), 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* Portable Text body styles */
+.prose-manor p {
+  color: #d1d5db;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.prose-manor h2 {
+  color: #facc15;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-manor h3 {
+  color: #e5e7eb;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-manor strong {
+  color: #ffffff;
+}
+
+.prose-manor a {
+  color: #facc15;
+  text-decoration: underline;
+}
+
+.prose-manor ul, .prose-manor ol {
+  color: #d1d5db;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-manor li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.prose-manor blockquote {
+  border-left: 4px solid #facc15;
+  padding-left: 1rem;
+  color: #9ca3af;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.prose-manor img {
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  width: 100%;
 }
