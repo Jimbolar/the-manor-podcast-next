@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
-import { client } from '@/sanity/lib/client'
+import { sanityFetch } from '@/sanity/lib/live'
 import { postBySlugQuery } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/urlFor'
 import Header from '@/components/Header'
@@ -13,7 +13,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const post = await client.fetch(postBySlugQuery, { slug })
+  const { data: post } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
   if (!post) return {}
   return {
     title: `${post.title} | The Manor Podcast`,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params
-  const post = await client.fetch(postBySlugQuery, { slug })
+  const { data: post } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
 
   if (!post) notFound()
 

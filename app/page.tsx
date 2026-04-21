@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { client } from '@/sanity/lib/client'
+import { sanityFetch } from '@/sanity/lib/live'
 import { latestPostsQuery } from '@/sanity/lib/queries'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -15,7 +15,7 @@ const socials = [
 ]
 
 export default async function HomePage() {
-  const latestPosts = await client.fetch(latestPostsQuery)
+  const { data: latestPosts } = await sanityFetch({ query: latestPostsQuery })
 
   return (
     <>

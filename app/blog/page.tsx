@@ -1,4 +1,4 @@
-import { client } from '@/sanity/lib/client'
+import { sanityFetch } from '@/sanity/lib/live'
 import { postsQuery } from '@/sanity/lib/queries'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -19,7 +19,7 @@ const mockPost = {
 }
 
 export default async function BlogPage() {
-  const posts = await client.fetch(postsQuery)
+  const { data: posts } = await sanityFetch({ query: postsQuery })
   const displayPosts = posts.length > 0 ? posts : [mockPost]
 
   return (
