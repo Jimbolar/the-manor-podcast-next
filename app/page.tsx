@@ -65,12 +65,41 @@ export default async function HomePage() {
           </div>
         </section>
 
+        {/* ── Latest match reports ──────────────────────────────── */}
+        {(() => {
+          const mockPost = {
+            _id: 'mock-1',
+            title: 'Oxford United 2–1 Bristol City: Back to winning ways at the Kassam',
+            slug: { current: '#' },
+            author: 'JamSebRob',
+            publishedAt: '2026-04-19T16:00:00Z',
+            excerpt: 'A scrappy but deserved win. United were sloppy in the first half but a clinical second-half turnaround — including a thunderbolt from Forde — sent the Kassam home happy.',
+            mainImage: null,
+          }
+          const posts = latestPosts.length > 0 ? latestPosts : [mockPost]
+          return (
+            <section className="max-w-5xl mx-auto px-4 py-12 border-b border-gray-800">
+              <div className="flex items-baseline justify-between mb-6 border-b border-gray-800 pb-3">
+                <h2 className="text-white text-4xl">Latest Blog Posts</h2>
+                <Link href="/blog" className="text-yellow-400 text-sm uppercase tracking-widest hover:underline">
+                  All posts →
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {posts.map((post: any) => (
+                  <PostCard key={post._id} post={post} />
+                ))}
+              </div>
+            </section>
+          )
+        })()}
+
         {/* ── Latest YouTube ────────────────────────────────────── */}
         <section className="max-w-5xl mx-auto px-4 py-12 border-b border-gray-800">
           <h2 className="text-white text-4xl mb-6">Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">All Videos</p>
+              <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">Latest Videos</p>
               <EmbedFrame
                 src="https://www.youtube.com/embed/videoseries?list=PLY1Q1k0ZiVmBdSiZKCz3y7ODUM_wupvv6"
                 title="The Manor Podcast — YouTube Playlist"
@@ -107,35 +136,6 @@ export default async function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* ── Latest match reports ──────────────────────────────── */}
-        {(() => {
-          const mockPost = {
-            _id: 'mock-1',
-            title: 'Oxford United 2–1 Bristol City: Back to winning ways at the Kassam',
-            slug: { current: '#' },
-            author: 'JamSebRob',
-            publishedAt: '2026-04-19T16:00:00Z',
-            excerpt: 'A scrappy but deserved win. United were sloppy in the first half but a clinical second-half turnaround — including a thunderbolt from Forde — sent the Kassam home happy.',
-            mainImage: null,
-          }
-          const posts = latestPosts.length > 0 ? latestPosts : [mockPost]
-          return (
-            <section className="max-w-5xl mx-auto px-4 py-12 pb-16">
-              <div className="flex items-baseline justify-between mb-6 border-b border-gray-800 pb-3">
-                <h2 className="text-white text-4xl">Latest Blog Posts</h2>
-                <Link href="/blog" className="text-yellow-400 text-sm uppercase tracking-widest hover:underline">
-                  All posts →
-                </Link>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {posts.map((post: any) => (
-                  <PostCard key={post._id} post={post} />
-                ))}
-              </div>
-            </section>
-          )
-        })()}
 
       </main>
       <Footer />
