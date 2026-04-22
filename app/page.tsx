@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PostCard from '@/components/PostCard'
 import EmbedFrame from '@/components/EmbedFrame'
+import FootyStatsTable from '@/components/FootyStatsTable'
+import FootyStatsUpcoming from '@/components/FootyStatsUpcoming'
 
 const socials = [
   { href: 'https://open.spotify.com/show/4sHlCqZdGmDPA83giKkNSt', src: '/images/spotify-icon-yellow.png', alt: 'Spotify' },
@@ -33,8 +35,7 @@ export default async function HomePage() {
                   Informal.<br />Analytical.<br />Inconsistent.
                 </h1>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  <strong className="text-white">The Manor Podcast</strong> is an extremely unofficial,
-                  proudly informal Oxford United podcast brought to you by a handful of OUFC exiles
+                  <strong className="text-white">The Manor Podcast</strong> is an unofficial Oxford United podcast brought to you by a handful of OUFC exiles
                   scattered across the UK.
                 </p>
               </div>
@@ -66,15 +67,45 @@ export default async function HomePage() {
 
         {/* ── Latest YouTube ────────────────────────────────────── */}
         <section className="max-w-5xl mx-auto px-4 py-12 border-b border-gray-800">
-          <h2 className="text-white text-4xl mb-6">Latest Video</h2>
-          <EmbedFrame
-            src="https://www.youtube.com/embed/9vJA9iSZ4vU?si=jBNdaL-1k7irHlT_"
-            title="The Manor Podcast — YouTube"
-            height={480}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            className="border border-gray-800"
-          />
+          <h2 className="text-white text-4xl mb-6">Videos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">All Videos</p>
+              <EmbedFrame
+                src="https://www.youtube.com/embed/videoseries?list=PLY1Q1k0ZiVmBdSiZKCz3y7ODUM_wupvv6"
+                title="The Manor Podcast — YouTube Playlist"
+                height={280}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="border border-gray-800"
+              />
+            </div>
+            <div>
+              <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">Highlights Reel</p>
+              <EmbedFrame
+                src="https://www.youtube.com/embed/Mw3Qb8Gb4q4?si=Ts3ZMZ_-3bajWv2L"
+                title="The Manor Podcast — Latest Episode"
+                height={280}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="border border-gray-800"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── League table & upcoming fixtures ───────────────── */}
+        <section className="max-w-5xl mx-auto px-4 py-12 border-b border-gray-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-white text-4xl mb-6">League Table</h2>
+              <FootyStatsTable />
+            </div>
+            <div>
+              <h2 className="text-white text-4xl mb-6">Upcoming Fixtures</h2>
+              <FootyStatsUpcoming />
+            </div>
+          </div>
         </section>
 
         {/* ── Latest match reports ──────────────────────────────── */}

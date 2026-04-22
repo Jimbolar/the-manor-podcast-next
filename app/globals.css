@@ -58,6 +58,77 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.25rem;
 }
 
+/* ── Footy Stats widget overrides ────────────────────────────── */
+#fs-standings-wrapper {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+}
+
+#fs-standings-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  font-family: var(--font-titillium), 'Titillium Web', sans-serif;
+  font-size: 0.875rem;
+}
+
+#fs-standings-wrapper thead tr {
+  background-color: #1f2937 !important;
+  color: #9ca3af !important;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+#fs-standings-wrapper thead th {
+  background-color: #1f2937 !important;
+  color: #9ca3af !important;
+  border-bottom: 1px solid #374151 !important;
+  padding: 0.6rem 0.75rem;
+}
+
+#fs-standings-wrapper tbody tr {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+  border-bottom: 1px solid #1f2937 !important;
+  transition: background-color 0.15s;
+}
+
+#fs-standings-wrapper tbody tr:hover {
+  background-color: #1f2937 !important;
+}
+
+/* Oxford United highlight row */
+#fs-standings-wrapper tbody tr[style*="fff3cd"] {
+  background-color: #422006 !important;
+  color: #facc15 !important;
+  font-weight: 700 !important;
+}
+
+#fs-standings-wrapper tbody td {
+  padding: 0.5rem 0.75rem;
+  color: inherit !important;
+  background-color: inherit !important;
+  border: none !important;
+}
+
+#fs-standings-wrapper a,
+#fs-standings-wrapper a:visited {
+  color: #f9fafb !important;
+  text-decoration: none !important;
+}
+
+#fs-standings-wrapper a:hover {
+  color: #facc15 !important;
+}
+
+/* Hide any Footy Stats branding/footer if present */
+#fs-standings-wrapper .fs-widget-footer,
+#fs-standings-wrapper .fs-powered-by {
+  display: none !important;
+}
+
 .prose-manor li {
   margin-bottom: 0.4rem;
   line-height: 1.7;
