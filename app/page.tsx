@@ -60,6 +60,7 @@ export default async function HomePage() {
                 height={352}
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 className="border border-gray-800"
+                lazy={false}
               />
             </div>
           </div>

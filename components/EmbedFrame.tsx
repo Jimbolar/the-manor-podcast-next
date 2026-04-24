@@ -10,9 +10,10 @@ type Props = {
   sandbox?: string
   referrerPolicy?: string
   className?: string
+  lazy?: boolean
 }
 
-export default function EmbedFrame({ src, title, height, allow, sandbox, referrerPolicy, className = '' }: Props) {
+export default function EmbedFrame({ src, title, height, allow, sandbox, referrerPolicy, className = '', lazy = true }: Props) {
   const [loaded, setLoaded] = useState(false)
 
   return (
@@ -40,7 +41,7 @@ export default function EmbedFrame({ src, title, height, allow, sandbox, referre
         sandbox={sandbox as any}
         referrerPolicy={referrerPolicy as any}
         allowFullScreen
-        loading="lazy"
+        loading={lazy ? 'lazy' : 'eager'}
         onLoad={() => setLoaded(true)}
         className={`w-full block transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ height, display: 'block' }}
