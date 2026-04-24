@@ -52,9 +52,23 @@ export default function FootyStatsUpcoming() {
   const initialised = useRef(false)
 
   useEffect(() => {
-    if (initialised.current) return
-    initialised.current = true
+    const wrapper = wrapperRef.current
+    if (!wrapper) return
 
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return
+        intersectionObserver.disconnect()
+        if (initialised.current) return
+        initialised.current = true
+        init()
+      },
+      { rootMargin: '200px' }
+    )
+    intersectionObserver.observe(wrapper)
+    return () => intersectionObserver.disconnect()
+
+    function init() {
     ;(window as any)['fsUpcomingEmbed'] = 'fsUpcoming'
     ;(window as any)['fsUpcoming'] = (window as any)['fsUpcoming'] || function (...args: any[]) {
       ((window as any)['fsUpcoming'].q = (window as any)['fsUpcoming'].q || []).push(args)
@@ -86,11 +100,6 @@ export default function FootyStatsUpcoming() {
     const firstScript = document.getElementsByTagName('script')[0]
     firstScript.parentNode?.insertBefore(script, firstScript)
 
-    return () => {
-      observer.disconnect()
-      if (document.body.contains(script)) {
-        document.body.removeChild(script)
-      }
     }
   }, [])
 
