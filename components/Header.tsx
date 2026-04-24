@@ -6,7 +6,7 @@ export default function Header() {
     <header className="w-full bg-gray-950 border-b border-gray-800">
       <div
         className="relative w-full h-56 bg-gray-900 flex items-center justify-center overflow-hidden"
-        style={{ backgroundImage: 'url(/images/the-manor-web-banner.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: 'url(/images/the-manor-web-banner.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <Image
           src="/images/the-manor-new-web.png"
