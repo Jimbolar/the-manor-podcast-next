@@ -42,7 +42,7 @@ export default async function PostPage({ params }: Props) {
         <article className="max-w-3xl mx-auto px-4 py-12">
 
           <Link href="/blog" className="text-yellow-400 text-sm uppercase tracking-widest hover:underline mb-8 inline-block">
-            ← Match Reports
+            ← Blog Hub
           </Link>
 
           <h1 className="text-white text-5xl leading-tight mb-4">{post.title}</h1>
