@@ -68,7 +68,23 @@ export default async function PostPage({ params }: Props) {
 
           {post.body && (
             <div className="prose-manor">
-              <PortableText value={post.body} />
+              <PortableText
+                value={post.body}
+                components={{
+                  types: {
+                    image: ({ value }) => {
+                      if (!value?.asset) return null
+                      return (
+                        <img
+                          src={urlFor(value).width(900).url()}
+                          alt={value.alt || ''}
+                          className="w-full rounded-xl my-8 object-cover"
+                        />
+                      )
+                    },
+                  },
+                }}
+              />
             </div>
           )}
         </article>

@@ -26,5 +26,11 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0] {
   publishedAt,
   excerpt,
   mainImage,
-  body,
+  body[] {
+    ...,
+    _type == "image" => {
+      ...,
+      asset->
+    }
+  },
 }`
