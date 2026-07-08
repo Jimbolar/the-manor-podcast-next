@@ -74,7 +74,7 @@ export default function FootyStatsTable() {
     ;(window as any)['mw'] = (window as any)['mw'] || function (...args: any[]) {
       ((window as any)['mw'].q = (window as any)['mw'].q || []).push(args)
     }
-    ;(window as any).mw('params', { leagueID: 14930 })
+    ;(window as any).mw('params', { leagueID: 17180 })
 
     const observer = new MutationObserver(() => {
       const wrapper = wrapperRef.current
