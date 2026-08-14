@@ -34,3 +34,31 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0] {
     }
   },
 }`
+
+// ── Manor Cup ─────────────────────────────────────────────────────────────────
+
+export const manorCupFixturesQuery = `*[_type == "manorCupFixture" && season == $season] | order(date asc) {
+  _id,
+  season,
+  date,
+  homeTeam,
+  awayTeam,
+  competition,
+  actualHomeScore,
+  actualAwayScore,
+  connorPrediction,
+  jackPrediction,
+  jamesPrediction,
+  johnPrediction,
+}`
+
+export const manorCupSeasonPredictionsQuery = `*[_type == "manorCupSeasonPrediction" && season == $season] | order(participant asc) {
+  _id,
+  season,
+  participant,
+  avatar,
+  leaguePosition,
+  playerOfSeason,
+  topScorer,
+  randomPrediction,
+}`

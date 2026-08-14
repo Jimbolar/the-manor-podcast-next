@@ -20,6 +20,7 @@ export default function Header() {
       <nav className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-center gap-8 text-sm uppercase tracking-widest">
         <Link href="/" className="text-gray-300 hover:text-yellow-400 transition-colors">Home</Link>
         <Link href="/blog" className="text-gray-300 hover:text-yellow-400 transition-colors">Blog</Link>
+        <Link href="/manor-cup" className="text-gray-300 hover:text-yellow-400 transition-colors">The Manor Cup</Link>
         <a href="https://open.spotify.com/show/4sHlCqZdGmDPA83giKkNSt" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-yellow-400 transition-colors">Listen</a>
       </nav>
     </header>

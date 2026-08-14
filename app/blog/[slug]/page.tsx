@@ -11,9 +11,21 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+type PostData = {
+  _id: string
+  title: string
+  slug: { current: string }
+  author?: string
+  publishedAt?: string
+  excerpt?: string
+  mainImage?: any
+  body?: any[]
+}
+
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const { data: post } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
+  const { data: rawPost } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
+  const post = rawPost as PostData | null
   if (!post) return {}
   return {
     title: `${post.title} | The Manor Podcast`,
@@ -23,7 +35,8 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params
-  const { data: post } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
+  const { data: rawPost } = await sanityFetch({ query: postBySlugQuery, params: { slug } })
+  const post = rawPost as PostData | null
 
   if (!post) notFound()
 

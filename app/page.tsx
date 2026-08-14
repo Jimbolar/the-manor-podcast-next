@@ -17,7 +17,7 @@ const socials = [
 ]
 
 export default async function HomePage() {
-  const { data: latestPosts } = await sanityFetch({ query: latestPostsQuery })
+  const { data: rawLatestPosts } = await sanityFetch({ query: latestPostsQuery })
 
   return (
     <>
@@ -77,7 +77,7 @@ export default async function HomePage() {
             excerpt: 'A scrappy but deserved win. United were sloppy in the first half but a clinical second-half turnaround — including a thunderbolt from Forde — sent the Kassam home happy.',
             mainImage: null,
           }
-          const posts = latestPosts.length > 0 ? latestPosts : [mockPost]
+          const posts = (rawLatestPosts as typeof mockPost[]).length > 0 ? rawLatestPosts as typeof mockPost[] : [mockPost]
           return (
             <section className="max-w-5xl mx-auto px-4 py-12 border-b border-gray-800">
               <div className="flex items-baseline justify-between mb-6 border-b border-gray-800 pb-3">

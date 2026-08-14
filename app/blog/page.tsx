@@ -19,7 +19,8 @@ const mockPost = {
 }
 
 export default async function BlogPage() {
-  const { data: posts } = await sanityFetch({ query: postsQuery })
+  const { data: rawPosts } = await sanityFetch({ query: postsQuery })
+  const posts = rawPosts as typeof mockPost[]
   const displayPosts = posts.length > 0 ? posts : [mockPost]
 
   return (
