@@ -85,9 +85,25 @@ function PredictionCell({
 export default function ScorePredictionsTable({ fixtures }: { fixtures: FixtureWithPredictions[] }) {
   return (
     <section aria-labelledby="score-predictions-heading">
-      <h2 id="score-predictions-heading" className="text-yellow-400 text-5xl mb-6">
+      <h2 id="score-predictions-heading" className="text-yellow-400 text-5xl mb-4">
         The Manor Cup - Score Predictions (26/27)
       </h2>
+
+      {/* Legend */}
+      <div className="mb-6 flex flex-wrap gap-4 text-xs text-gray-400" aria-label="Scoring key">
+        <div className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-green-600/70 border border-green-500" aria-hidden="true" />
+          <span>Exact score (3 pts)</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-amber-600/70 border border-amber-500" aria-hidden="true" />
+          <span>Correct result (1 pt)</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-sm bg-red-700/70 border border-red-500" aria-hidden="true" />
+          <span>Wrong result (0 pts)</span>
+        </div>
+      </div>
 
       {fixtures.length === 0 ? (
         <p className="text-gray-500">No fixtures have been added yet.</p>
@@ -169,21 +185,6 @@ export default function ScorePredictionsTable({ fixtures }: { fixtures: FixtureW
         </div>
       )}
 
-      {/* Legend */}
-      <div className="mt-4 flex flex-wrap gap-4 text-xs text-gray-400" aria-label="Scoring key">
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-green-600/70 border border-green-500" aria-hidden="true" />
-          <span>Exact score (3 pts)</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-amber-600/70 border border-amber-500" aria-hidden="true" />
-          <span>Correct result (1 pt)</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-3 h-3 rounded-sm bg-red-700/70 border border-red-500" aria-hidden="true" />
-          <span>Wrong result (0 pts)</span>
-        </div>
-      </div>
     </section>
   )
 }
