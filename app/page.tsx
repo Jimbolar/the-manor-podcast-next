@@ -99,17 +99,6 @@ export default async function HomePage() {
           <h2 className="text-white text-4xl mb-6">Videos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">Latest Videos</p>
-              <EmbedFrame
-                src="https://www.youtube.com/embed/videoseries?list=PLY1Q1k0ZiVmBdSiZKCz3y7ODUM_wupvv6"
-                title="The Manor Podcast — YouTube Playlist"
-                height={280}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="border border-gray-800"
-              />
-            </div>
-            <div>
               <p className="text-gray-500 text-xs uppercase tracking-widest mb-3">Highlights Reel</p>
               <EmbedFrame
                 src="https://www.youtube.com/embed/Mw3Qb8Gb4q4?si=Ts3ZMZ_-3bajWv2L"
@@ -135,7 +124,7 @@ export default async function HomePage() {
               />
             </div>
             <div>
-              <h2 className="text-white text-4xl mb-6">Upcoming Fixtures</h2>
+              <h2 className="text-white text-4xl mb-6">Stats</h2>
               <ScoreaxisWidget
                 widgetId="yz7lmwcjeqfi"
                 height={600}
