@@ -6,8 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PostCard from '@/components/PostCard'
 import EmbedFrame from '@/components/EmbedFrame'
-import FootyStatsTable from '@/components/FootyStatsTable'
-import FootyStatsUpcoming from '@/components/FootyStatsUpcoming'
+import ScoreaxisWidget from '@/components/ScoreaxisWidget'
 
 const socials = [
   { href: 'https://open.spotify.com/show/4sHlCqZdGmDPA83giKkNSt', src: '/images/spotify-icon-yellow.png', alt: 'Spotify' },
@@ -129,11 +128,19 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-white text-4xl mb-6">League Table</h2>
-              <FootyStatsTable />
+              <ScoreaxisWidget
+                widgetId="4t9cmwcj9uvh"
+                height={600}
+                src="https://widgets.scoreaxis.com/api/football/league-table/62322c24ab744d39ef6504b6?widgetId=4t9cmwcj9uvh&lang=en&highlightTeamId=62321affadaf4b2bd73de404&highlightTeamColor=%23ffd000&teamLogo=1&tableLines=0&homeAway=1&header=1&position=1&goals=1&gamesCount=1&diff=1&winCount=1&drawCount=1&loseCount=1&lastGames=1&points=1&teamsLimit=all&links=1&noFollowLinks=0&font=heebo&fontSize=14&rowDensity=100&widgetWidth=auto&widgetHeight=auto&bodyColor=%23ffffff&textColor=%23141416&linkColor=%23141416&borderColor=%23ecf1f7&tabColor=%23f3f8fd"
+              />
             </div>
             <div>
               <h2 className="text-white text-4xl mb-6">Upcoming Fixtures</h2>
-              <FootyStatsUpcoming />
+              <ScoreaxisWidget
+                widgetId="yz7lmwcjeqfi"
+                height={600}
+                src="https://widgets.scoreaxis.com/api/football/team-info/62321affadaf4b2bd73de404?widgetId=yz7lmwcjeqfi&lang=en&statsBlock=1&playersBlock=1&matchesBlock=1&links=1&noFollowLinks=0&font=heebo&fontSize=14&rowDensity=100&widgetWidth=auto&widgetHeight=auto&bodyColor=%23ffffff&textColor=%23141416&linkColor=%23141416&borderColor=%23ecf1f7&tabColor=%23f3f8fd"
+              />
             </div>
           </div>
         </section>
